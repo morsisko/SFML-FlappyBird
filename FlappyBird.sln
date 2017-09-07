@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26730.12
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "FlappyBird", "FlappyBird\FlappyBird.vcxproj", "{6504C670-0C30-4DCD-9912-1948FEA271DE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6504C670-0C30-4DCD-9912-1948FEA271DE}.Debug|x64.ActiveCfg = Debug|x64
+		{6504C670-0C30-4DCD-9912-1948FEA271DE}.Debug|x64.Build.0 = Debug|x64
+		{6504C670-0C30-4DCD-9912-1948FEA271DE}.Debug|x86.ActiveCfg = Debug|Win32
+		{6504C670-0C30-4DCD-9912-1948FEA271DE}.Debug|x86.Build.0 = Debug|Win32
+		{6504C670-0C30-4DCD-9912-1948FEA271DE}.Release|x64.ActiveCfg = Release|x64
+		{6504C670-0C30-4DCD-9912-1948FEA271DE}.Release|x64.Build.0 = Release|x64
+		{6504C670-0C30-4DCD-9912-1948FEA271DE}.Release|x86.ActiveCfg = Release|Win32
+		{6504C670-0C30-4DCD-9912-1948FEA271DE}.Release|x86.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {57E9358C-B523-4C62-94BA-E3527C4BA3A0}
+	EndGlobalSection
+EndGlobal
