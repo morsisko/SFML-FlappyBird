@@ -11,6 +11,14 @@ GameState::GameState(GameStateManager* manager, sf::RenderWindow* window) : Stat
 
 void GameState::handleEvent(const sf::Event & event)
 {
+	switch (event.type)
+	{
+	case sf::Event::MouseButtonReleased:
+		bird.jump();
+		break;
+	default:
+		break;
+	}
 }
 
 void GameState::render()

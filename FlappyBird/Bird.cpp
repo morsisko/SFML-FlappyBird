@@ -18,6 +18,15 @@ Bird::Bird() : animation(200)
 void Bird::update(int deltaTime)
 {
 	animation.update(deltaTime, sprite);
+
+	speed -= (deltaTime / 1000.0f * GRAVITY);
+
+	sprite.move(0.0f, -speed);
+}
+
+void Bird::jump()
+{
+	speed = 5.0f;
 }
 
 void Bird::draw(sf::RenderTarget & target, sf::RenderStates states) const
