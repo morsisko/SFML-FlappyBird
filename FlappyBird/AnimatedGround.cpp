@@ -1,7 +1,7 @@
 #include "AnimatedGround.h"
 #include "Game.h"
 
-AnimatedGround::AnimatedGround(sf::Texture& texture, float screenWidth, float screenHeight) : screenWidth(screenWidth)
+AnimatedGround::AnimatedGround(sf::Texture& texture, int screenWidth, int screenHeight) : screenWidth(static_cast<float>(screenWidth))
 {
 	sprite.setTexture(texture);
 	sprite.setScale(Game::SCALE, Game::SCALE);

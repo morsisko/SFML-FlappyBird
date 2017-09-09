@@ -15,7 +15,7 @@ private:
 
 	virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const;
 public:
-	AnimatedGround(sf::Texture& texture, float screenWidth, float screenHeight);
+	AnimatedGround(sf::Texture& texture, int screenWidth, int screenHeight);
 	void update(int ms);
 	bool checkForCollision(Bird& bird);
 	~AnimatedGround();

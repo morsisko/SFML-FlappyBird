@@ -6,7 +6,7 @@ GameState::GameState(GameStateManager* manager, sf::RenderWindow* window) : Stat
 	pointsText(manager->getAssets().font, window->getSize().x),
 	dist(Pipe::SPACE + 1.0f, window->getSize().y - manager->getAssets().groundTexture.getSize().y * Game::SCALE - 1.0f),
 	bird(manager->getAssets().birdTexture, window->getSize().y - manager->getAssets().groundTexture.getSize().y * Game::SCALE),
-	ground(manager->getAssets().groundTexture, static_cast<float>(window->getSize().x), static_cast<float>(window->getSize().y))
+	ground(manager->getAssets().groundTexture, window->getSize().x, window->getSize().y)
 {
 	background.setTexture(manager->getAssets().backgroundTexture);
 	background.setScale(Game::SCALE, Game::SCALE);
