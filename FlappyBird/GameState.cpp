@@ -2,11 +2,11 @@
 
 
 
-GameState::GameState(GameStateManager* manager, sf::RenderWindow* window) : State(manager, window)
+GameState::GameState(GameStateManager* manager, sf::RenderWindow* window) : State(manager, window),
+	bird(manager->getAssets().birdTexture)
 {
-	backgroundTexture.loadFromFile("assets/background.png");
-	background.setTexture(backgroundTexture);
-	background.setScale(3.0f, 3.0f);
+	background.setTexture(manager->getAssets().backgroundTexture);
+	background.setScale(SCALE, SCALE);
 }
 
 void GameState::handleEvent(const sf::Event & event)

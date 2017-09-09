@@ -9,7 +9,7 @@ void SplashScreen::onTimeOver()
 
 SplashScreen::SplashScreen(GameStateManager* manager, sf::RenderWindow* window, int miliseconds) : State(manager, window)
 {
-	splashTexture.loadFromFile("assets/logo.png");
+	const sf::Texture& splashTexture = manager->getAssets().splashTexture;
 	splashSprite.setTexture(splashTexture);
 
 	splashSprite.setPosition(window->getSize().x / 2.0f - splashTexture.getSize().x / 2.0f, window->getSize().y / 2.0f - splashTexture.getSize().y / 2.0f);

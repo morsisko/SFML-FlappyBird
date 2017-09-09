@@ -128,23 +128,27 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Animation.cpp" />
+    <ClCompile Include="AssetsManager.cpp" />
     <ClCompile Include="Bird.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="GameState.cpp" />
     <ClCompile Include="GameStateManager.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MenuState.cpp" />
+    <ClCompile Include="Pipe.cpp" />
     <ClCompile Include="SimpleButton.cpp" />
     <ClCompile Include="SplashScreen.cpp" />
     <ClCompile Include="State.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Animation.h" />
+    <ClInclude Include="AssetsManager.h" />
     <ClInclude Include="Bird.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="GameState.h" />
     <ClInclude Include="GameStateManager.h" />
     <ClInclude Include="MenuState.h" />
+    <ClInclude Include="Pipe.h" />
     <ClInclude Include="SimpleButton.h" />
     <ClInclude Include="SplashScreen.h" />
     <ClInclude Include="State.h" />

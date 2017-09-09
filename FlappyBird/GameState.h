@@ -6,7 +6,9 @@ class GameState :
 	public State
 {
 private:
-	sf::Texture backgroundTexture;
+
+
+	static constexpr float SCALE = 3.0f;
 	sf::Sprite background;
 
 	Bird bird;

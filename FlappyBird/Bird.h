@@ -6,7 +6,6 @@ class Bird :
 {
 private:
 	Animation animation;
-	sf::Texture birdTexture;
 	sf::Sprite sprite;
 	float speed = 0.0f;
 
@@ -16,7 +15,7 @@ private:
 	const float GRAVITY = 10.0f;
 
 public:
-	Bird();
+	Bird(sf::Texture& birdTexture);
 	void update(int deltaTime);
 	void jump();
 	virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const;

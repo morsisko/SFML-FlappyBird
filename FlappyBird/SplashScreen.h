@@ -7,7 +7,6 @@ class SplashScreen :
 	public State
 {
 private:
-	sf::Texture splashTexture;
 	sf::Sprite splashSprite;
 	int elapsedTime = 0;
 	int disappearTime = 0;
