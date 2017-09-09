@@ -28,6 +28,8 @@ private:
 	void addNextPipe();
 	void checkForPipes();
 	void checkForCollisions();
+	void killBird();
+	void addPoint();
 public:
 	GameState(GameStateManager* manager, sf::RenderWindow* window);
 	virtual void handleEvent(const sf::Event &event);

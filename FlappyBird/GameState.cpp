@@ -20,8 +20,18 @@ void GameState::handleEvent(const sf::Event & event)
 	switch (event.type)
 	{
 	case sf::Event::MouseButtonReleased:
+	{
 		bird.jump();
+		if (bird.isAlive())
+			manager->getAssets().wingSound.play();
 		break;
+	}
+	case sf::Event::KeyReleased:
+	{
+		if (!bird.isAlive())
+			manager->setState(std::make_unique<GameState>(manager, window));
+		break;
+	}
 	default:
 		break;
 	}
@@ -76,20 +86,32 @@ void GameState::checkForPipes()
 	{
 		pipes.pop_front();
 		addNextPipe();
-		pointsText.addPoints();
+		addPoint();
 	}
 }
 
 void GameState::checkForCollisions()
 {
 	if (ground.checkForCollision(bird))
-		bird.kill();
+		killBird();
 
 	else if (pipes.empty())
 		return;
 
 	else if (pipes.front().checkCollision(bird))
-		bird.kill();
+		killBird();
+}
+
+void GameState::killBird()
+{
+	bird.kill();
+	manager->getAssets().hitSound.play();
+}
+
+void GameState::addPoint()
+{
+	pointsText.addPoints();
+	manager->getAssets().pointSound.play();
 }
 
 
