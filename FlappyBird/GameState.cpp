@@ -5,7 +5,7 @@ GameState::GameState(GameStateManager* manager, sf::RenderWindow* window) : Stat
 	mt(rd()),
 	pointsText(manager->getAssets().font, window->getSize().x),
 	dist(Pipe::SPACE + 1.0f, window->getSize().y - manager->getAssets().groundTexture.getSize().y * Game::SCALE - 1.0f),
-	bird(manager->getAssets().birdTexture),
+	bird(manager->getAssets().birdTexture, window->getSize().y - manager->getAssets().groundTexture.getSize().y * Game::SCALE),
 	ground(manager->getAssets().groundTexture, static_cast<float>(window->getSize().x), static_cast<float>(window->getSize().y))
 {
 	background.setTexture(manager->getAssets().backgroundTexture);
@@ -30,9 +30,9 @@ void GameState::handleEvent(const sf::Event & event)
 void GameState::render()
 {
 	window->draw(background);
-	window->draw(bird);
 	for (auto& pipe : pipes)
 		window->draw(pipe);
+	window->draw(bird);
 	window->draw(pointsText);
 	window->draw(ground);
 }
@@ -40,12 +40,17 @@ void GameState::render()
 void GameState::update(int deltaTime)
 {
 	bird.update(deltaTime);
+
+	if (!bird.isAlive())
+		return;
+
 	ground.update(deltaTime);
 
 	for (auto& pipe : pipes)
 		pipe.update(deltaTime);
 
 	checkForPipes();
+	checkForCollisions();
 }
 
 void GameState::addPipe(float x)
@@ -73,6 +78,15 @@ void GameState::checkForPipes()
 		addNextPipe();
 		pointsText.addPoints();
 	}
+}
+
+void GameState::checkForCollisions()
+{
+	if (pipes.empty())
+		return;
+
+	if (pipes.front().checkCollision(bird))
+		bird.kill();
 }
 
 

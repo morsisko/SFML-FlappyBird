@@ -27,6 +27,7 @@ private:
 	void addPipe(float x);
 	void addNextPipe();
 	void checkForPipes();
+	void checkForCollisions();
 public:
 	GameState(GameStateManager* manager, sf::RenderWindow* window);
 	virtual void handleEvent(const sf::Event &event);

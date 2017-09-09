@@ -2,7 +2,7 @@
 #include "Game.h"
 
 
-Bird::Bird(sf::Texture& birdTexture) : animation(200)
+Bird::Bird(sf::Texture& birdTexture, float groundPosition) : animation(200), groundPosition(groundPosition)
 {
 	sprite.setTexture(birdTexture);
 
@@ -16,8 +16,16 @@ Bird::Bird(sf::Texture& birdTexture) : animation(200)
 	sprite.setPosition(100, 100);
 }
 
+const sf::Sprite & Bird::getSprite()
+{
+	return sprite;
+}
+
 void Bird::update(int deltaTime)
 {
+	if (sprite.getGlobalBounds().top + sprite.getGlobalBounds().height>= groundPosition)
+		return;
+
 	animation.update(deltaTime, sprite);
 
 	speed -= (deltaTime / 1000.0f * GRAVITY);
@@ -29,8 +37,21 @@ void Bird::update(int deltaTime)
 
 void Bird::jump()
 {
+	if (!alive)
+		return;
+
 	speed = JUMP_SPEED;
 	sprite.setRotation(-JUMP_ROTATE);
+}
+
+void Bird::kill()
+{
+	alive = false;
+}
+
+bool Bird::isAlive()
+{
+	return alive;
 }
 
 void Bird::draw(sf::RenderTarget & target, sf::RenderStates states) const

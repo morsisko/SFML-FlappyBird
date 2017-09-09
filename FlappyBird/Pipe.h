@@ -1,5 +1,7 @@
 #pragma once
 #include <SFML\Graphics.hpp>
+#include "Collision.h"
+#include "Bird.h"
 
 class Pipe :
 	public sf::Drawable
@@ -17,6 +19,7 @@ public:
 	void update(int ms);
 	float getX();
 	float getWidth();
+	bool checkCollision(Bird& bird);
 	~Pipe();
 };
 

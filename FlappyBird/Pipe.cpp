@@ -29,6 +29,11 @@ float Pipe::getWidth()
 	return upperPipe.getGlobalBounds().width;
 }
 
+bool Pipe::checkCollision(Bird & bird)
+{
+	return (Collision::BoundingBoxTest(bird.getSprite(), upperPipe) || Collision::BoundingBoxTest(bird.getSprite(), bottomPipe));
+}
+
 void Pipe::draw(sf::RenderTarget & target, sf::RenderStates states) const
 {
 	target.draw(upperPipe, states);
