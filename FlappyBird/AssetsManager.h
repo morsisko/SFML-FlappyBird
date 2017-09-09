@@ -10,6 +10,7 @@ public:
 	sf::Texture bottomPipeTexture;
 	sf::Texture splashTexture;
 	sf::Texture groundTexture;
+	sf::Font font;
 
 	AssetsManager();
 	~AssetsManager();

@@ -10,6 +10,7 @@ AssetsManager::AssetsManager()
 	backgroundTexture.loadFromFile("assets/background.png");
 	splashTexture.loadFromFile("assets/logo.png");
 	groundTexture.loadFromFile("assets/ground.png");
+	font.loadFromFile("assets/ariblk.ttf");
 }
 
 

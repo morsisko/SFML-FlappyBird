@@ -137,6 +137,7 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MenuState.cpp" />
     <ClCompile Include="Pipe.cpp" />
+    <ClCompile Include="PointsText.cpp" />
     <ClCompile Include="SimpleButton.cpp" />
     <ClCompile Include="SplashScreen.cpp" />
     <ClCompile Include="State.cpp" />
@@ -151,6 +152,7 @@
     <ClInclude Include="GameStateManager.h" />
     <ClInclude Include="MenuState.h" />
     <ClInclude Include="Pipe.h" />
+    <ClInclude Include="PointsText.h" />
     <ClInclude Include="SimpleButton.h" />
     <ClInclude Include="SplashScreen.h" />
     <ClInclude Include="State.h" />

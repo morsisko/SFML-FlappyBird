@@ -3,6 +3,7 @@
 #include "Bird.h"
 #include "Pipe.h"
 #include "AnimatedGround.h"
+#include "PointsText.h"
 #include <random>
 #include <list>
 
@@ -14,6 +15,7 @@ private:
 	Bird bird;
 	AnimatedGround ground;
 	std::list<Pipe> pipes;
+	PointsText pointsText;
 
 	std::random_device rd;
 	std::mt19937 mt;

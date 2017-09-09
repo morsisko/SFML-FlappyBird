@@ -3,7 +3,8 @@
 
 GameState::GameState(GameStateManager* manager, sf::RenderWindow* window) : State(manager, window),
 	mt(rd()),
-	dist(Pipe::SPACE + 1.0f, manager->getAssets().groundTexture.getSize().y * Game::SCALE - 1.0f),
+	pointsText(manager->getAssets().font, window->getSize().x),
+	dist(Pipe::SPACE + 1.0f, window->getSize().y - manager->getAssets().groundTexture.getSize().y * Game::SCALE - 1.0f),
 	bird(manager->getAssets().birdTexture),
 	ground(manager->getAssets().groundTexture, static_cast<float>(window->getSize().x), static_cast<float>(window->getSize().y))
 {
@@ -32,6 +33,7 @@ void GameState::render()
 	window->draw(bird);
 	for (auto& pipe : pipes)
 		window->draw(pipe);
+	window->draw(pointsText);
 	window->draw(ground);
 }
 
@@ -69,6 +71,7 @@ void GameState::checkForPipes()
 	{
 		pipes.pop_front();
 		addNextPipe();
+		pointsText.addPoints();
 	}
 }
 
