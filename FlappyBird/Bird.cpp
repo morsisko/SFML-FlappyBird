@@ -11,9 +11,9 @@ Bird::Bird(sf::Texture& birdTexture) : animation(200)
 
 	animation.setDefaultFrame(sprite);
 
-	//sprite.setPosition(200, 200);
+	sprite.setOrigin(sprite.getGlobalBounds().width / 2, sprite.getGlobalBounds().height / 2);
 	sprite.setScale(Game::SCALE, Game::SCALE);
-	//sprite.setOrigin(birdTexture.getSize().x * sprite.getScale().x / 2, birdTexture.getSize().y * sprite.getScale().y / 2);
+	sprite.setPosition(100, 100);
 }
 
 void Bird::update(int deltaTime)
@@ -23,12 +23,14 @@ void Bird::update(int deltaTime)
 	speed -= (deltaTime / 1000.0f * GRAVITY);
 
 	sprite.move(0.0f, -speed);
+	if (sprite.getRotation() >= 360.0f - JUMP_ROTATE || sprite.getRotation() <= 90.0f)
+		sprite.rotate(ROTATE * deltaTime / 1000);
 }
 
 void Bird::jump()
 {
-	speed = 7.5f;
-	//sprite.setRotation(75.0f);
+	speed = JUMP_SPEED;
+	sprite.setRotation(-JUMP_ROTATE);
 }
 
 void Bird::draw(sf::RenderTarget & target, sf::RenderStates states) const

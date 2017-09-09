@@ -14,6 +14,9 @@ private:
 	static const int TEXTURE_HEIGHT = 12;
 
 	const float GRAVITY = 20.0f;
+	const float ROTATE = 90.0f;
+	const float JUMP_ROTATE = 45.0f;
+	const float JUMP_SPEED = 7.5f;
 
 	virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const;
 public:
