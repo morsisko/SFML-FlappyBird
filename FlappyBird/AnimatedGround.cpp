@@ -16,6 +16,11 @@ void AnimatedGround::update(int ms)
 		sprite.setPosition(0, sprite.getPosition().y);
 }
 
+bool AnimatedGround::checkForCollision(Bird & bird)
+{
+	return Collision::BoundingBoxTest(bird.getSprite(), sprite);
+}
+
 void AnimatedGround::draw(sf::RenderTarget & target, sf::RenderStates states) const
 {
 	target.draw(sprite, states);

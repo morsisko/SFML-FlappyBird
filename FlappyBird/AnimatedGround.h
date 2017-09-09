@@ -1,5 +1,7 @@
 #pragma once
 #include <SFML\Graphics.hpp>
+#include "Bird.h"
+#include "Collision.h"
 
 
 class AnimatedGround :
@@ -15,6 +17,7 @@ private:
 public:
 	AnimatedGround(sf::Texture& texture, float screenWidth, float screenHeight);
 	void update(int ms);
+	bool checkForCollision(Bird& bird);
 	~AnimatedGround();
 };
 

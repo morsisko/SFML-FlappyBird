@@ -82,10 +82,13 @@ void GameState::checkForPipes()
 
 void GameState::checkForCollisions()
 {
-	if (pipes.empty())
+	if (ground.checkForCollision(bird))
+		bird.kill();
+
+	else if (pipes.empty())
 		return;
 
-	if (pipes.front().checkCollision(bird))
+	else if (pipes.front().checkCollision(bird))
 		bird.kill();
 }
 
