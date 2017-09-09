@@ -1,5 +1,5 @@
 #include "Bird.h"
-
+#include "Game.h"
 
 
 Bird::Bird(sf::Texture& birdTexture) : animation(200)
@@ -12,7 +12,7 @@ Bird::Bird(sf::Texture& birdTexture) : animation(200)
 	animation.setDefaultFrame(sprite);
 
 	//sprite.setPosition(200, 200);
-	sprite.setScale(3.0f, 3.0f);
+	sprite.setScale(Game::SCALE, Game::SCALE);
 	//sprite.setOrigin(birdTexture.getSize().x * sprite.getScale().x / 2, birdTexture.getSize().y * sprite.getScale().y / 2);
 }
 
@@ -27,7 +27,7 @@ void Bird::update(int deltaTime)
 
 void Bird::jump()
 {
-	speed = 5.0f;
+	speed = 7.5f;
 	//sprite.setRotation(75.0f);
 }
 

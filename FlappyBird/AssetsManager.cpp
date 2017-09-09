@@ -9,6 +9,7 @@ AssetsManager::AssetsManager()
 	bottomPipeTexture.loadFromFile("assets/bottom.png");
 	backgroundTexture.loadFromFile("assets/background.png");
 	splashTexture.loadFromFile("assets/logo.png");
+	groundTexture.loadFromFile("assets/ground.png");
 }
 
 

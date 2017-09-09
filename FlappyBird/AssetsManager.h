@@ -9,6 +9,7 @@ public:
 	sf::Texture upperPipeTexture;
 	sf::Texture bottomPipeTexture;
 	sf::Texture splashTexture;
+	sf::Texture groundTexture;
 
 	AssetsManager();
 	~AssetsManager();

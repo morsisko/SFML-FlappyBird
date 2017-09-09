@@ -127,6 +127,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="AnimatedGround.cpp" />
     <ClCompile Include="Animation.cpp" />
     <ClCompile Include="AssetsManager.cpp" />
     <ClCompile Include="Bird.cpp" />
@@ -141,6 +142,7 @@
     <ClCompile Include="State.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AnimatedGround.h" />
     <ClInclude Include="Animation.h" />
     <ClInclude Include="AssetsManager.h" />
     <ClInclude Include="Bird.h" />
