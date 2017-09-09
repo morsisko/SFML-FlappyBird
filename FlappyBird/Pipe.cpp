@@ -9,14 +9,24 @@ Pipe::Pipe(sf::Texture& upperTexture, sf::Texture& bottomTexture, float x, float
 	upperPipe.setScale(Game::SCALE, Game::SCALE);
 	bottomPipe.setScale(Game::SCALE, Game::SCALE);
 
-	upperPipe.setPosition(x, y);
-	bottomPipe.setPosition(x, y + upperPipe.getGlobalBounds().height + SPACE);
+	bottomPipe.setPosition(x, y);
+	upperPipe.setPosition(x, y - bottomPipe.getGlobalBounds().height - SPACE);
 }
 
 void Pipe::update(int ms)
 {
 	upperPipe.move(-SPEED * ms / 1000.0f, 0.0f);
 	bottomPipe.move(-SPEED * ms / 1000.0f, 0.0f);
+}
+
+float Pipe::getX()
+{
+	return upperPipe.getPosition().x;
+}
+
+float Pipe::getWidth()
+{
+	return upperPipe.getGlobalBounds().width;
 }
 
 void Pipe::draw(sf::RenderTarget & target, sf::RenderStates states) const
@@ -29,4 +39,5 @@ void Pipe::draw(sf::RenderTarget & target, sf::RenderStates states) const
 
 Pipe::~Pipe()
 {
+
 }
