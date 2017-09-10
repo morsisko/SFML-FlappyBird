@@ -16,6 +16,7 @@ private:
 	AnimatedGround ground;
 	std::list<Pipe> pipes;
 	PointsText pointsText;
+	bool sounds = false;
 
 	std::random_device rd;
 	std::mt19937 mt;
@@ -31,7 +32,7 @@ private:
 	void killBird();
 	void addPoint();
 public:
-	GameState(GameStateManager* manager, sf::RenderWindow* window);
+	GameState(GameStateManager* manager, sf::RenderWindow* window, bool sounds);
 	virtual void handleEvent(const sf::Event &event);
 	virtual void render();
 	virtual void update(int deltaTime);

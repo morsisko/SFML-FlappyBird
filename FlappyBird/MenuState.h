@@ -7,9 +7,14 @@ class MenuState :
 	public State
 {
 private:
+	const float BUTTON_SPACE = 20.0f;
+	
 	sf::Font font;
+	bool sounds = false;
 	SimpleButton playBtn;
+	SimpleButton soundBtn;
 	virtual void play();
+	void changeSoundState();
 public:
 	MenuState(GameStateManager* manager, sf::RenderWindow* window);
 	virtual void handleEvent(const sf::Event &event);

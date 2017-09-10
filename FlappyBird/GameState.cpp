@@ -1,12 +1,13 @@
 #include "GameState.h"
 #include "Game.h"
 
-GameState::GameState(GameStateManager* manager, sf::RenderWindow* window) : State(manager, window),
+GameState::GameState(GameStateManager* manager, sf::RenderWindow* window, bool sounds) : State(manager, window),
 	mt(rd()),
 	pointsText(manager->getAssets().font, window->getSize().x),
 	dist(Pipe::SPACE + 1.0f, window->getSize().y - manager->getAssets().groundTexture.getSize().y * Game::SCALE - 1.0f),
 	bird(manager->getAssets().birdTexture, window->getSize().y - manager->getAssets().groundTexture.getSize().y * Game::SCALE),
-	ground(manager->getAssets().groundTexture, window->getSize().x, window->getSize().y)
+	ground(manager->getAssets().groundTexture, window->getSize().x, window->getSize().y),
+	sounds(sounds)
 {
 	background.setTexture(manager->getAssets().backgroundTexture);
 	background.setScale(Game::SCALE, Game::SCALE);
@@ -22,14 +23,14 @@ void GameState::handleEvent(const sf::Event & event)
 	case sf::Event::MouseButtonReleased:
 	{
 		bird.jump();
-		if (bird.isAlive())
+		if (bird.isAlive() && sounds)
 			manager->getAssets().wingSound.play();
 		break;
 	}
 	case sf::Event::KeyReleased:
 	{
 		if (!bird.isAlive())
-			manager->setState(std::make_unique<GameState>(manager, window));
+			manager->setState(std::make_unique<GameState>(manager, window, sounds));
 		break;
 	}
 	default:
@@ -105,13 +106,15 @@ void GameState::checkForCollisions()
 void GameState::killBird()
 {
 	bird.kill();
-	manager->getAssets().hitSound.play();
+	if (sounds)
+		manager->getAssets().hitSound.play();
 }
 
 void GameState::addPoint()
 {
 	pointsText.addPoints();
-	manager->getAssets().pointSound.play();
+	if (sounds)
+		manager->getAssets().pointSound.play();
 }
 
 
