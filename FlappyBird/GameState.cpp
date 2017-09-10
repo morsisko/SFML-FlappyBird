@@ -83,11 +83,17 @@ void GameState::checkForPipes()
 		return;
 
 	Pipe& frontPipe = pipes.front();
-	if (frontPipe.getX() + frontPipe.getWidth() < 0.0f)
+	
+	if (!frontPipe.wasSkipped() && frontPipe.getX() + frontPipe.getWidth() < bird.getSprite().getGlobalBounds().left)
+	{
+		frontPipe.markAsSkipped();
+		addPoint();
+	}
+
+	else if (frontPipe.getX() + frontPipe.getWidth() < 0.0f)
 	{
 		pipes.pop_front();
 		addNextPipe();
-		addPoint();
 	}
 }
 

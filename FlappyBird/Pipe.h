@@ -9,6 +9,7 @@ class Pipe :
 private:
 	sf::Sprite upperPipe;
 	sf::Sprite bottomPipe;
+	bool skipped = false;
 	const float SPEED = 150.0f;
 
 	virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const;
@@ -20,6 +21,8 @@ public:
 	float getX();
 	float getWidth();
 	bool checkCollision(Bird& bird);
+	void markAsSkipped();
+	bool wasSkipped();
 	~Pipe();
 };
 

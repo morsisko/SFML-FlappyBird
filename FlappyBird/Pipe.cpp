@@ -34,6 +34,16 @@ bool Pipe::checkCollision(Bird & bird)
 	return (Collision::BoundingBoxTest(bird.getSprite(), upperPipe) || Collision::BoundingBoxTest(bird.getSprite(), bottomPipe));
 }
 
+void Pipe::markAsSkipped()
+{
+	skipped = true;
+}
+
+bool Pipe::wasSkipped()
+{
+	return skipped;
+}
+
 void Pipe::draw(sf::RenderTarget & target, sf::RenderStates states) const
 {
 	target.draw(upperPipe, states);
